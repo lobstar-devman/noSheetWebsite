@@ -18,7 +18,7 @@
  9
 10{{/* Copy minified to examples folder */}}
 11{{ $x := resources.Get &#34;noSheetLibrary/noSheet.min.mjs&#34; }}
-12{{ (resources.Copy &#34;noSheetLibrary/examples/js/noSheet.min.mjs&#34; $x).Publish }}
+12{{ (resources.Copy &#34;noSheetLibrary/examples/noSheetWebsite/js/noSheet.min.mjs&#34; $x).Publish }}
 13
 14{{/* Publish to the website */}}
 15{{ (((resources.Get &#34;nosheet_source/noSheetRoot.mjs&#34;) | resources.ExecuteAsTemplate &#34;js/noSheet.mjs&#34; .) | minify).Publish }}
@@ -182,7 +182,7 @@
  9
 10{{/* Copy minified to examples folder */}}
 11{{ $x := resources.Get &#34;noSheetLibrary/noSheet.min.mjs&#34; }}
-12{{ (resources.Copy &#34;noSheetLibrary/examples/js/noSheet.min.mjs&#34; $x).Publish }}
+12{{ (resources.Copy &#34;noSheetLibrary/examples/noSheetWebsite/js/noSheet.min.mjs&#34; $x).Publish }}
 13
 14{{/* Publish to the website */}}
 15{{ (((resources.Get &#34;nosheet_source/noSheetRoot.mjs&#34;) | resources.ExecuteAsTemplate &#34;js/noSheet.mjs&#34; .) | minify).Publish }}
@@ -349,7 +349,7 @@
  9
 10{{/* Copy minified to examples folder */}}
 11{{ $x := resources.Get &#34;noSheetLibrary/noSheet.min.mjs&#34; }}
-12{{ (resources.Copy &#34;noSheetLibrary/examples/js/noSheet.min.mjs&#34; $x).Publish }}
+12{{ (resources.Copy &#34;noSheetLibrary/examples/noSheetWebsite/js/noSheet.min.mjs&#34; $x).Publish }}
 13
 14{{/* Publish to the website */}}
 15{{ (((resources.Get &#34;nosheet_source/noSheetRoot.mjs&#34;) | resources.ExecuteAsTemplate &#34;js/noSheet.mjs&#34; .) | minify).Publish }}
@@ -500,9 +500,9 @@
 
 <link rel="icon" href="http://localhost:1313/noSheetWebsite/favicon.ico"><!-- Stylesheets --->
 <link rel="stylesheet" href="/noSheetWebsite/css/style.css" /><!-- Script -->
-<script src="/noSheetWebsite/js/main.js"></script>
+<script src="/noSheetWebsite/noSheetWebsite/js/main.js"></script>
 <!-- Components -->
-<link rel="stylesheet" href="/css/site.css"><!-- JS Content --><!-- Published --></head>
+<link rel="stylesheet" href="/noSheetWebsite/css/site.css"><!-- JS Content --><!-- Published --></head>
 <body class="min-h-screen"><div id="fluidity-theme-container">
     <header class="relative z-50"><div
   class="bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md border-b border-blue-100 dark:border-blue-950 shadow-sm">
@@ -681,7 +681,7 @@
 </span></span><span class="line"><span class="ln"> 9</span><span class="cl">
 </span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="p">{{</span><span class="cm">/* Copy minified to examples folder */</span><span class="p">}}</span>
 </span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">{{</span> <span class="nx">$x</span> <span class="o">:=</span> <span class="nx">resources</span><span class="p">.</span><span class="nx">Get</span> <span class="s2">&#34;noSheetLibrary/noSheet.min.mjs&#34;</span> <span class="p">}}</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">{{</span> <span class="p">(</span><span class="nx">resources</span><span class="p">.</span><span class="nx">Copy</span> <span class="s2">&#34;noSheetLibrary/examples/js/noSheet.min.mjs&#34;</span> <span class="nx">$x</span><span class="p">).</span><span class="nx">Publish</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="p">{{</span> <span class="p">(</span><span class="nx">resources</span><span class="p">.</span><span class="nx">Copy</span> <span class="s2">&#34;noSheetLibrary/examples/noSheetWebsite/js/noSheet.min.mjs&#34;</span> <span class="nx">$x</span><span class="p">).</span><span class="nx">Publish</span> <span class="p">}}</span>
 </span></span><span class="line"><span class="ln">13</span><span class="cl">
 </span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">{{</span><span class="cm">/* Publish to the website */</span><span class="p">}}</span>
 </span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="p">{{</span> <span class="p">(((</span><span class="nx">resources</span><span class="p">.</span><span class="nx">Get</span> <span class="s2">&#34;nosheet_source/noSheetRoot.mjs&#34;</span><span class="p">)</span> <span class="o">|</span> <span class="nx">resources</span><span class="p">.</span><span class="nx">ExecuteAsTemplate</span> <span class="s2">&#34;js/noSheet.mjs&#34;</span> <span class="p">.)</span> <span class="o">|</span> <span class="nx">minify</span><span class="p">).</span><span class="nx">Publish</span> <span class="p">}}</span>

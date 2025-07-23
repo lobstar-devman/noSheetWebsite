@@ -23,9 +23,9 @@
 
 <link rel="icon" href="http://localhost:1313/noSheetWebsite/favicon.ico"><!-- Stylesheets --->
 <link rel="stylesheet" href="/noSheetWebsite/css/style.css" /><!-- Script -->
-<script src="/noSheetWebsite/js/main.js"></script>
+<script src="/noSheetWebsite/noSheetWebsite/js/main.js"></script>
 <!-- Components -->
-<link rel="stylesheet" href="/css/site.css"><!-- JS Content --><script src="/js/examples/utils.js"></script><script src="/js/examples/simple_alpine_table.js"></script>
+<link rel="stylesheet" href="/noSheetWebsite/css/site.css"><!-- JS Content --><script src="/noSheetWebsite/js/examples/utils.js"></script><script src="/noSheetWebsite/js/examples/simple_alpine_table.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@formulajs/formulajs/lib/browser/formula.min.js" crossorigin="anonymous"></script><!-- Published --></head>
 <body class="min-h-screen"><div id="fluidity-theme-container">
     <header class="relative z-50"><div
@@ -148,15 +148,15 @@ var whenNoSheetReady = new Promise( (resolve) => {
     (async () => {
 
         //the library
-        const {defineStack, createTable} = await import('/js/nosheet.min.mjs');
+        const {defineStack, createTable} = await import('/noSheetWebsite/js/nosheet.min.mjs');
 
         //the facets
-        const {default: raw_materials} = await import('/js/examples/facets/raw_materials.mjs');
-        const {default: lineitems}     = await import('/js/examples/facets/lineitems.mjs');
-        const {default: gross_margin}  = await import('/js/examples/facets/gross_margin.mjs');        
+        const {default: raw_materials} = await import('/noSheetWebsite/js/examples/facets/raw_materials.mjs');
+        const {default: lineitems}     = await import('/noSheetWebsite/js/examples/facets/lineitems.mjs');
+        const {default: gross_margin}  = await import('/noSheetWebsite/js/examples/facets/gross_margin.mjs');        
 
         //the data
-        const response = await fetch('/js/examples/data/example_1.json');
+        const response = await fetch('/noSheetWebsite/js/examples/data/example_1.json');
         const data = response.ok ? await response.json() : [];
 
         //

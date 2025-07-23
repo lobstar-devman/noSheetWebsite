@@ -50,20 +50,20 @@ var whenNoSheetReady = new Promise( (resolve) => {
     (async () => {
 
         //the library
-        const {defineStack, createTable} = await import('/js/nosheet.min.mjs');
+        const {defineStack, createTable} = await import('/noSheetWebsite/js/nosheet.min.mjs');
 
         //the facets
-        const {default: raw_materials}   = await import('/js/examples/facets/raw_materials.mjs');
-        const {default: lineitems}       = await import('/js/examples/facets/lineitems.mjs');
-        const {default: gross_margin}    = await import('/js/examples/facets/gross_margin.mjs');        
-        const {default: steel_suppliers} = await import('/js/examples/facets/steel_suppliers.mjs');        
-        const {default: consolidation}   = await import('/js/examples/facets/consolidation.mjs');    
+        const {default: raw_materials}   = await import('/noSheetWebsite/js/examples/facets/raw_materials.mjs');
+        const {default: lineitems}       = await import('/noSheetWebsite/js/examples/facets/lineitems.mjs');
+        const {default: gross_margin}    = await import('/noSheetWebsite/js/examples/facets/gross_margin.mjs');        
+        const {default: steel_suppliers} = await import('/noSheetWebsite/js/examples/facets/steel_suppliers.mjs');        
+        const {default: consolidation}   = await import('/noSheetWebsite/js/examples/facets/consolidation.mjs');    
 
         //load the data
-        const data1 = await loadJSON('/js/examples/data/example_1.json'),
-              data2 = await loadJSON('/js/examples/data/example_3_site_2.json'),
-              data3 = await loadJSON('/js/examples/data/example_3_site_3.json'),
-              data4 = await loadJSON('/js/examples/data/example_3_steel_suppliers.json'); 
+        const data1 = await loadJSON('/noSheetWebsite/js/examples/data/example_1.json'),
+              data2 = await loadJSON('/noSheetWebsite/js/examples/data/example_3_site_2.json'),
+              data3 = await loadJSON('/noSheetWebsite/js/examples/data/example_3_site_3.json'),
+              data4 = await loadJSON('/noSheetWebsite/js/examples/data/example_3_steel_suppliers.json'); 
         
         //
         //create and define the stack, which acts as a table factory and allows us to use consolidation facets

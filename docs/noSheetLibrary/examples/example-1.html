@@ -46,13 +46,13 @@ var whenNoSheetReady = new Promise( (resolve) => {
     (async () => {
 
         //the library
-        const {defineStack, createTable} = await import('/js/nosheet.min.mjs');
+        const {defineStack, createTable} = await import('/noSheetWebsite/js/nosheet.min.mjs');
 
         //the facets
-        const {default: lineitems} = await import('/js/examples/facets/lineitems.mjs');
+        const {default: lineitems} = await import('/noSheetWebsite/js/examples/facets/lineitems.mjs');
 
         //the data
-        const response = await fetch('/js/examples/data/example_1.json');
+        const response = await fetch('/noSheetWebsite/js/examples/data/example_1.json');
         const data = response.ok ? await response.json() : [];
 
         //
