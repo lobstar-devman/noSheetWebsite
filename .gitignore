@@ -139,4 +139,4 @@ dist
 website/compiler
 website/sources
 website/index.xml
-website/js/noSheetLibrary
+websitejs/noSheetLibrary

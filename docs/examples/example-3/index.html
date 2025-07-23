@@ -22,10 +22,10 @@
 <title>Example 3 - Stacks, Consolidation &amp; References | NoSheet</title>
 
 <link rel="icon" href="http://localhost:1313/favicon.ico"><!-- Stylesheets --->
-<link rel="stylesheet" href="/css/style.css" /><!-- Script -->
-<script src="/js/main.js"></script>
+<link rel="stylesheet" href="css/style.css" /><!-- Script -->
+<script src="js/main.js"></script>
 <!-- Components -->
-<link rel="stylesheet" href="/css/site.css"><!-- JS Content --><script src="/js/examples/utils.js"></script><script src="/js/examples/simple_alpine_table.js"></script>
+<link rel="stylesheet" href="css/site.css"><!-- JS Content --><script src="js/examples/utils.js"></script><script src="js/examples/simple_alpine_table.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@formulajs/formulajs/lib/browser/formula.min.js" crossorigin="anonymous"></script><!-- Published --></head>
 <body class="min-h-screen"><div id="fluidity-theme-container">
     <header class="relative z-50"><div
@@ -150,20 +150,20 @@ var whenNoSheetReady = new Promise( (resolve) => {
     (async () => {
 
         //the library
-        const {defineStack, createTable} = await import('/js/nosheet.min.mjs');
+        const {defineStack, createTable} = await import('js/nosheet.min.mjs');
 
         //the facets
-        const {default: raw_materials}   = await import('/js/examples/facets/raw_materials.mjs');
-        const {default: lineitems}       = await import('/js/examples/facets/lineitems.mjs');
-        const {default: gross_margin}    = await import('/js/examples/facets/gross_margin.mjs');        
-        const {default: steel_suppliers} = await import('/js/examples/facets/steel_suppliers.mjs');        
-        const {default: consolidation}   = await import('/js/examples/facets/consolidation.mjs');    
+        const {default: raw_materials}   = await import('js/examples/facets/raw_materials.mjs');
+        const {default: lineitems}       = await import('js/examples/facets/lineitems.mjs');
+        const {default: gross_margin}    = await import('js/examples/facets/gross_margin.mjs');        
+        const {default: steel_suppliers} = await import('js/examples/facets/steel_suppliers.mjs');        
+        const {default: consolidation}   = await import('js/examples/facets/consolidation.mjs');    
 
         //load the data
-        const data1 = await loadJSON('/js/examples/data/example_1.json'),
-              data2 = await loadJSON('/js/examples/data/example_3_site_2.json'),
-              data3 = await loadJSON('/js/examples/data/example_3_site_3.json'),
-              data4 = await loadJSON('/js/examples/data/example_3_steel_suppliers.json'); 
+        const data1 = await loadJSON('js/examples/data/example_1.json'),
+              data2 = await loadJSON('js/examples/data/example_3_site_2.json'),
+              data3 = await loadJSON('js/examples/data/example_3_site_3.json'),
+              data4 = await loadJSON('js/examples/data/example_3_steel_suppliers.json'); 
         
         //
         //create and define the stack, which acts as a table factory and allows us to use consolidation facets
