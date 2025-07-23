@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/noSheetWebsite/compiler/</loc>
-    <lastmod>2025-07-14T00:00:01+01:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/noSheetWebsite/</loc>
     <lastmod>2025-06-11T19:09:31+01:00</lastmod>
   </url><url>
@@ -55,8 +52,6 @@
     <loc>http://localhost:1313/noSheetWebsite/archives/</loc>
   </url><url>
     <loc>http://localhost:1313/noSheetWebsite/search/</loc>
-  </url><url>
-    <loc>http://localhost:1313/noSheetWebsite/sources/home_page/</loc>
   </url><url>
     <loc>http://localhost:1313/noSheetWebsite/categories/</loc>
   </url><url>
