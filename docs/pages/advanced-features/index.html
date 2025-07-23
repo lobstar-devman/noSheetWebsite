@@ -214,7 +214,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>A table may use multiple facets from your library. In this way you can mix and match the facets used to do calculations that is task dependent. So, if for instance, you want to see the gross margins for your invoice you can simply add the &lsquo;gross margin&rsquo; facet from your library.</p>
 
-<p>Read about what the differences between noSheet and a spreadsheet library are <a href="/pages/what-the-diff">here</a>.</p>
+<p>Read about what the differences between noSheet and a spreadsheet library are <a href="/noSheetWebsite/pages/what-the-diff">here</a>.</p>
 <h2 id="data-populations">Data Populations</h2>
 <p>Rows within a noSheet table exist in populations, if you don&rsquo;t define a population when you load data, it will be assigned to the <code>default</code> population</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">table</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="s1">&#39;lineitems&#39;</span> <span class="cm">/*define the population for these rows*/</span><span class="p">);</span>
@@ -229,7 +229,7 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">facet1</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span> <span class="p">{</span> 
 </span></span><span class="line"><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">SUM</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">columns</span><span class="p">(</span><span class="s1">&#39;column1&#39;</span><span class="p">,</span> <span class="s1">&#39;column2&#39;</span><span class="p">));</span> 
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>The <code>columns(s)</code> context methods will verify the column parameters to make sure that you are not selecting from columns that haven&rsquo;t been calculated yet <a href="/pages/what-the-diff#">see formula precedents and dependants</a></p>
+</span></span></code></pre></div><p>The <code>columns(s)</code> context methods will verify the column parameters to make sure that you are not selecting from columns that haven&rsquo;t been calculated yet <a href="/noSheetWebsite/pages/what-the-diff#">see formula precedents and dependants</a></p>
 <p>The <code>column</code>/<code>columns</code> methods have a basic psuedo SQL SELECT fluent syntax allowing you select:</p>
 <ul>
 <li><strong>from</strong> one or more populations</li>
