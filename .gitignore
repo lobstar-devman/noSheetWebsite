@@ -138,5 +138,5 @@ dist
 #hugo
 docs/compiler
 docs/sources
-docs/index.xml
 docs/noSheetLibrary
+index.xml
