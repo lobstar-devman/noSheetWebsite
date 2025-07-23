@@ -136,7 +136,7 @@ dist
 .pnp.*
 
 #hugo
-website/compiler
-website/sources
-website/index.xml
-websitejs/noSheetLibrary
+xdocs/compiler
+xdocs/sources
+xdocs/index.xml
+xdocs/noSheetLibrary
