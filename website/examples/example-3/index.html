@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="A simple example" />
+<meta name="author" content="">
+<meta name="keywords" content="">
+
+<link rel="canonical" href="http://localhost:1313/examples/example-3/" /><!-- open graph --><meta property="og:type" content="article" />
+<meta property="og:description" content="A simple example" />
+<meta property="og:title" content="Example 3 - Stacks, Consolidation &amp; References" />
+<meta property="og:site_name" content="NoSheet" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:url" content="http://localhost:1313/examples/example-3/" />
+<meta property="og:locale" content="en" /><meta property="article:published_time" content="2025-06-11" /><meta property="article:modified_time" content="2025-06-11" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Example 3 - Stacks, Consolidation &amp; References | NoSheet" />
+<meta name="twitter:description" content="A simple example" />
+<meta name="twitter:domain" content="http://localhost:1313/examples/example-3/" />
+
+<title>Example 3 - Stacks, Consolidation &amp; References | NoSheet</title>
+
+<link rel="icon" href="http://localhost:1313/favicon.ico"><!-- Stylesheets --->
+<link rel="stylesheet" href="/css/style.css" /><!-- Script -->
+<script src="/js/main.js"></script>
+<!-- Components -->
+<link rel="stylesheet" href="/css/site.css"><!-- JS Content --><script src="/js/examples/utils.js"></script><script src="/js/examples/simple_alpine_table.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@formulajs/formulajs/lib/browser/formula.min.js" crossorigin="anonymous"></script><!-- Published --></head>
+<body class="min-h-screen"><div id="fluidity-theme-container">
+    <header class="relative z-50"><div
+  class="bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md border-b border-blue-100 dark:border-blue-950 shadow-sm">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center py-5 px-4">
+      <div class="text-2xl">
+        <a href="http://localhost:1313/" class="flex items-center gap-2"><span class="font-semibold relative group">
+            <span
+              class="fluidity-page-title">NoSheet</span>
+            <span
+              class="fluidity-page-title-line"></span>
+          </span>
+        </a>
+      </div>
+
+      <div class="flex relative items-center gap-0.5"><nav class="relative isolate" role="navigation">
+    <ul class="hidden md:flex items-center gap-2"><li class="relative group">
+      <a
+        class="flex items-center relative px-4 py-2.5 rounded-lg text-base font-medium bg-transparent text-neutral-700 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-sky-50/80 dark:hover:bg-sky-900/20 active:bg-sky-100 dark:active:bg-sky-900/30 transform-gpu transition-all duration-300 ease-in-out motion-safe:hover:scale-[1.02] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-transparent before:to-transparent before:opacity-0 hover:before:from-sky-50/50 hover:before:to-sky-100/50 dark:hover:before:from-sky-900/30 dark:hover:before:to-sky-800/30 before:transition-opacity before:duration-300" href="/" title="Home">Home</a></li><li class="relative group">
+      <a
+        class="flex items-center relative px-4 py-2.5 rounded-lg text-base font-medium bg-transparent text-neutral-700 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-sky-50/80 dark:hover:bg-sky-900/20 active:bg-sky-100 dark:active:bg-sky-900/30 transform-gpu transition-all duration-300 ease-in-out motion-safe:hover:scale-[1.02] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-transparent before:to-transparent before:opacity-0 hover:before:from-sky-50/50 hover:before:to-sky-100/50 dark:hover:before:from-sky-900/30 dark:hover:before:to-sky-800/30 before:transition-opacity before:duration-300" href="/pages/" title="Pages">Pages</a></li><li class="relative group">
+      <a
+        class="flex items-center relative px-4 py-2.5 rounded-lg text-base font-medium bg-transparent text-neutral-700 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-sky-50/80 dark:hover:bg-sky-900/20 active:bg-sky-100 dark:active:bg-sky-900/30 transform-gpu transition-all duration-300 ease-in-out motion-safe:hover:scale-[1.02] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-transparent before:to-transparent before:opacity-0 hover:before:from-sky-50/50 hover:before:to-sky-100/50 dark:hover:before:from-sky-900/30 dark:hover:before:to-sky-800/30 before:transition-opacity before:duration-300 active text-sky-600 dark:text-sky-300 font-semibold before:opacity-100" aria-current="page" href="/examples/" title="Examples">Examples</a></li><li class="relative group">
+      <a
+        class="flex items-center relative px-4 py-2.5 rounded-lg text-base font-medium bg-transparent text-neutral-700 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-sky-50/80 dark:hover:bg-sky-900/20 active:bg-sky-100 dark:active:bg-sky-900/30 transform-gpu transition-all duration-300 ease-in-out motion-safe:hover:scale-[1.02] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-transparent before:to-transparent before:opacity-0 hover:before:from-sky-50/50 hover:before:to-sky-100/50 dark:hover:before:from-sky-900/30 dark:hover:before:to-sky-800/30 before:transition-opacity before:duration-300" href="/pages/roadmap/" title="Roadmap">Roadmap</a></li><li class="relative group">
+      <a
+        class="flex items-center relative px-4 py-2.5 rounded-lg text-base font-medium bg-transparent text-neutral-700 dark:text-neutral-200 hover:text-sky-600 dark:hover:text-sky-300 hover:bg-sky-50/80 dark:hover:bg-sky-900/20 active:bg-sky-100 dark:active:bg-sky-900/30 transform-gpu transition-all duration-300 ease-in-out motion-safe:hover:scale-[1.02] before:absolute before:inset-0 before:rounded-lg before:bg-gradient-to-br before:from-transparent before:to-transparent before:opacity-0 hover:before:from-sky-50/50 hover:before:to-sky-100/50 dark:hover:before:from-sky-900/30 dark:hover:before:to-sky-800/30 before:transition-opacity before:duration-300" href="/search/" title="Search">Search</a></li></ul>
+
+    
+    <div class="relative md:hidden " dir="rtl">
+      <ul
+        id="mobile-menu"
+        class="absolute top-0 -right-4 py-1 w-48
+          transform opacity-0 scale-95 
+          transition-all duration-200 ease-out
+          bg-white dark:bg-neutral-900
+          border border-neutral-200/80 dark:border-neutral-800/80
+          rounded-xl divide-y divide-neutral-100 dark:divide-neutral-900/50
+          shadow-lg shadow-neutral-100/20 dark:shadow-neutral-900/30
+          backdrop-blur-md text-left	
+          z-50"><li class="relative group">
+      <a
+        class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80 active:bg-neutral-200 dark:active:bg-neutral-700 transition-colors duration-200" href="/" title="Home">Home</a></li><li class="relative group">
+      <a
+        class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80 active:bg-neutral-200 dark:active:bg-neutral-700 transition-colors duration-200" href="/pages/" title="Pages">Pages</a></li><li class="relative group">
+      <a
+        class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80 active:bg-neutral-200 dark:active:bg-neutral-700 transition-colors duration-200 active text-sky-600 dark:text-sky-300 font-semibold before:opacity-100" aria-current="page" href="/examples/" title="Examples">Examples</a></li><li class="relative group">
+      <a
+        class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80 active:bg-neutral-200 dark:active:bg-neutral-700 transition-colors duration-200" href="/pages/roadmap/" title="Roadmap">Roadmap</a></li><li class="relative group">
+      <a
+        class="block px-4 py-2 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80 active:bg-neutral-200 dark:active:bg-neutral-700 transition-colors duration-200" href="/search/" title="Search">Search</a></li></ul>
+    </div>
+  </nav><button id="mobile-menu-button" class="fluidity-header-icon block md:hidden" aria-label="Toggle menu" aria-expanded="false"><svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"ZgotmplZZgotmplZ><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+</button>
+        <button id="theme-toggle" aria-label="Toggle theme" class="fluidity-header-icon">
+          <div id="theme-toggle-dark-icon" class="hidden"><svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"ZgotmplZZgotmplZ><path
+      d="M20.0258 17.0014C17.2639 21.7851 11.1471 23.4241 6.3634 20.6622C5.06068 19.9101 3.964 18.8926 3.12872 17.6797C2.84945 17.2741 3.0301 16.7141 3.49369 16.5482C7.26112 15.1997 9.27892 13.6372 10.4498 11.4021C11.6825 9.04908 12.001 6.47162 11.1387 2.93862C11.0195 2.45008 11.4053 1.98492 11.9075 2.01186C13.4645 2.09539 14.9856 2.54263 16.3649 3.33903C21.1486 6.10088 22.7876 12.2177 20.0258 17.0014ZM11.7785 12.0981C10.5272 14.4867 8.46706 16.1972 4.96104 17.597C5.5693 18.2929 6.29275 18.8894 7.1134 19.3632C11.1796 21.7108 16.3791 20.3176 18.7267 16.2514C21.0744 12.1852 19.6812 6.98571 15.6149 4.63807C14.7379 4.1317 13.7951 3.79168 12.8228 3.62253C13.4699 7.00652 13.0525 9.66622 11.7785 12.0981Z" /></svg>
+</div>
+          <div id="theme-toggle-light-icon" class="hidden"><svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  xmlns="http://www.w3.org/2000/svg"ZgotmplZZgotmplZ><path
+      d="M12 2C12.4142 2 12.75 2.33579 12.75 2.75V4.25C12.75 4.66421 12.4142 5 12 5C11.5858 5 11.25 4.66421 11.25 4.25V2.75C11.25 2.33579 11.5858 2 12 2ZM12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17ZM12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5ZM21.25 12.75C21.6642 12.75 22 12.4142 22 12C22 11.5858 21.6642 11.25 21.25 11.25H19.75C19.3358 11.25 19 11.5858 19 12C19 12.4142 19.3358 12.75 19.75 12.75H21.25ZM12 19C12.4142 19 12.75 19.3358 12.75 19.75V21.25C12.75 21.6642 12.4142 22 12 22C11.5858 22 11.25 21.6642 11.25 21.25V19.75C11.25 19.3358 11.5858 19 12 19ZM4.25 12.75C4.66421 12.75 5 12.4142 5 12C5 11.5858 4.66421 11.25 4.25 11.25H2.75C2.33579 11.25 2 11.5858 2 12C2 12.4142 2.33579 12.75 2.75 12.75H4.25ZM4.21967 4.22004C4.51256 3.92715 4.98744 3.92715 5.28033 4.22004L6.78033 5.72004C7.07322 6.01294 7.07322 6.48781 6.78033 6.7807C6.48744 7.0736 6.01256 7.0736 5.71967 6.7807L4.21967 5.2807C3.92678 4.98781 3.92678 4.51294 4.21967 4.22004ZM5.28033 19.7807C4.98744 20.0736 4.51256 20.0736 4.21967 19.7807C3.92678 19.4878 3.92678 19.0129 4.21967 18.72L5.71967 17.22C6.01256 16.9271 6.48744 16.9271 6.78033 17.22C7.07322 17.5129 7.07322 17.9878 6.78033 18.2807L5.28033 19.7807ZM19.7803 4.22004C19.4874 3.92715 19.0126 3.92715 18.7197 4.22004L17.2197 5.72004C16.9268 6.01294 16.9268 6.48781 17.2197 6.7807C17.5126 7.0736 17.9874 7.0736 18.2803 6.7807L19.7803 5.2807C20.0732 4.98781 20.0732 4.51294 19.7803 4.22004ZM18.7197 19.7807C19.0126 20.0736 19.4874 20.0736 19.7803 19.7807C20.0732 19.4878 20.0732 19.0129 19.7803 18.72L18.2803 17.22C17.9874 16.9271 17.5126 16.9271 17.2197 17.22C16.9268 17.5129 16.9268 17.9878 17.2197 18.2807L18.7197 19.7807Z" /></svg>
+</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+    <main class="flex-1 relative z-[1]">
+  <div class="container mt-1 mx-auto px-2 py-2 md:px-2 md:py-4 lg:px-4 lg:py-8 min-h-screen">
+    
+    <header class="md:mb-4 lg:mb-8">
+      <h1 class="fluidity-page-title text-4xl group mb-2 md:mb-4 lg:mb-8">
+        <span class="relative inline-block">
+          Example 3 - Stacks, Consolidation &amp; References
+          <span class="fluidity-page-title-line"></span>
+        </span>
+      </h1>
+    </header>
+
+    
+    <div class="md:mb-4 lg:mb-8">
+      
+      <div id="main-content" class="col-span-1 lg:col-span-2 order-2 lg:order-1">
+        <div
+          class="relative overflow-hidden
+                bg-gradient-to-br from-white/95 to-neutral-50/90
+                dark:from-neutral-900/95 dark:to-neutral-800/90
+                rounded-xl px-4 md:px-8 py-3 md:py-6
+                border border-neutral-200/80 dark:border-neutral-700/80
+                backdrop-blur-md
+                shadow-lg shadow-sky-100/20 dark:shadow-sky-900/20
+                transition-all duration-300 ease-out">
+          <article class="prose prose-neutral dark:prose-invert">
+            
+<script>
+const SUM     = formulajs.SUM,
+      AVERAGE = formulajs.AVERAGE;
+
+var percent_format  = new Intl.NumberFormat(undefined, {style: "percent"});
+
+//
+// Load the noSheet library, facets and create and populate a table
+//    
+var whenNoSheetReady = new Promise( (resolve) => {
+
+    (async () => {
+
+        //the library
+        const {defineStack, createTable} = await import('/js/nosheet.min.mjs');
+
+        //the facets
+        const {default: raw_materials}   = await import('/js/examples/facets/raw_materials.mjs');
+        const {default: lineitems}       = await import('/js/examples/facets/lineitems.mjs');
+        const {default: gross_margin}    = await import('/js/examples/facets/gross_margin.mjs');        
+        const {default: steel_suppliers} = await import('/js/examples/facets/steel_suppliers.mjs');        
+        const {default: consolidation}   = await import('/js/examples/facets/consolidation.mjs');    
+
+        //load the data
+        const data1 = await loadJSON('/js/examples/data/example_1.json'),
+              data2 = await loadJSON('/js/examples/data/example_3_site_2.json'),
+              data3 = await loadJSON('/js/examples/data/example_3_site_3.json'),
+              data4 = await loadJSON('/js/examples/data/example_3_steel_suppliers.json'); 
+        
+        //
+        //create and define the stack, which acts as a table factory and allows us to use consolidation facets
+        //        
+        let stack = defineStack('item', 'steel_m2', 'unit_offer', 'quantity'),
+            site_1 = stack.createTable('site1'),
+            site_2 = stack.createTable('site2'),
+            site_3 = stack.createTable('site3');
+
+        //set the facets used by the stack
+        stack.addFacets(raw_materials, lineitems, gross_margin);
+
+        //set a consolidation facet
+        stack.consolidate(consolidation);            
+
+        //
+        //populate the tables
+        //
+        site_1.load(data1);
+        site_2.load(data2);
+        site_3.load(data3);
+
+        //Create a table for the steel suppliers
+        let suppliers = createTable(['supplier', 'steel_m2', 'transport_m2'], steel_suppliers);
+
+        //load and calculate
+        suppliers.load(data4);
+        suppliers.calculate();
+
+        //Set the average_steel_cost_m2 reference required by the raw_materials facets to use
+        //the average_cost_per_m2 aggregate from the suppliers table
+        stack.setDefaultReferences( function(uses) {
+
+            this.average_steel_cost_m2 = uses(suppliers).average_cost_per_m2;
+        });  
+
+        resolve( [stack, site_1, site_2, site_3, suppliers] );
+    })()        
+});
+
+function referenceHandler(referenceName){
+    return {
+
+        init() {
+
+            //watch the store for reference initialization
+            this.$watch(`$store.${referenceName}`,(newHandler, oldHandler)=>{
+                this.value = newHandler.value;
+            })
+        },
+        value: '',
+        input: {
+            ['@input'](event) {
+                Alpine.store(referenceName).value = +event.srcElement.value;
+            },
+        },        
+    };                   
+};
+
+let unavailable = Symbol('unavailable');
+
+function ifAvailable(obj, fn){
+
+    let isAvailable = obj !== unavailable;
+
+    return fn && isAvailable ? fn(obj) : isAvailable;
+}
+
+//
+//Plumb in Alpine
+//
+document.addEventListener('alpine:init', () => {
+
+    console.log('alpine:init');
+
+    Alpine.data('consolidation', (name, formatter) => ({
+
+        init(){
+            //watch the store
+            this.$watch(`$store.consolidated`,(new_value, old_value)=>{           
+    
+                this.calculatedValue = Alpine.store('siteStack')[name].valueOf();
+            });                
+        },
+
+        calculatedValue: undefined,
+
+        get value() {
+
+            let v = this.calculatedValue ?? Alpine.store('siteStack')[name]?.valueOf();
+
+            return !formatter ? v : formatter.format(v);
+        },        
+    }));
+
+    Alpine.store('steelSuppliers', unavailable);
+    Alpine.store('activeTable', unavailable);
+    Alpine.store('siteStack', unavailable);
+    Alpine.store('consolidated', 0);
+
+    whenNoSheetReady.then( ([theStack, site1, site2, site3, suppliers]) => {
+
+        console.log('whenNoSheetReady');
+
+        //Define some reference handles
+        Alpine.store('low_margin_threshold', theStack.tables().getReferenceHandle('low_margin_threshold', 30) );
+        Alpine.store('manufacturing_cost_per_m2', theStack.tables().getReferenceHandle('manufacturing_cost_per_m2', 0.3) );
+
+        //set the consolidation refernces to mirror the table consolidation handle
+        theStack.setConsolidationReferences( function(uses) {
+
+            this.low_margin_threshold = Alpine.store('low_margin_threshold').value;
+        });
+
+        //increment the consolidation tick to force UI update
+        theStack.afterConsolidation( _ => {
+            Alpine.store('consolidated', Alpine.store('consolidated') + 1);
+         });
+
+        theStack.tables().calculate();    
+
+        //update the store with the init'd objects
+        Alpine.store('siteStack', theStack);
+        Alpine.store('activeTable', site1);
+        Alpine.store('steelSuppliers', suppliers);
+    });
+});       
+</script>
+
+<div class="min-h-screen">
+<div class="container mx-auto w-full h-full" x-data="{tab: 0}" x-effect="ifAvailable($store.siteStack, _ => Alpine.store('activeTable', $store.siteStack.getUniqueTable(`site${tab+1}`)))">
+    <div class="max-w-screen-lg mx-auto w-full h-full flex flex-col items-center justify-center">
+
+        <h2>Extending the Quote Calculator to handle multiple sites and multiple suppliers</h2>
+
+        <div class="grid grid-cols-2 gap-4 items-start justify-center w-full">
+            <div class="flex px-4">
+                <div>
+                    <p class="justify-normal">Change the manufacturing cost for all line items by adjusting the <code>manufacturing_cost_per_m2</code> parameter in the <a href="#raw_materials">raw_materials</a> facet</p>
+                </div>
+            </div>
+
+            <div class="flex px-4">
+                <div>
+                    <p>Set a minimum Margin Threshold for the quote through the <code>low_margin_threshold</code> parameter in the <a href="#gross_margin">gross_margin</a> facet</p>                    
+                </div>
+            </div>
+        </div>        
+
+        <div class="grid grid-cols-2 gap-4 justify-items-auto w-full">
+            <div class="flex px-4">
+                <div>
+                    <label for="Manufacturing_Cost">Manufacturing Cost:</label>
+                    <input id="Manufacturing_Cost" x-data="referenceHandler('manufacturing_cost_per_m2')" x-model="value" type="number" min="0" max="100" step="0.1" x-bind="input" class="text-right w-12 border-gray-200 border-2">            
+                    <label for="Manufacturing_Cost">per m<sup>2</sup></label>
+                </div>
+            </div>
+
+            <div class="flex px-4">
+                <div>
+                    <label for="Margin_Threshold">Margin Threshold:</label>
+                    <input id="Margin_Threshold" x-data="referenceHandler('low_margin_threshold')" x-model="value" type="number" min="0" max="100" x-bind="input" class="text-right w-12 border-gray-200 border-2">            
+                </div>
+            </div>
+        </div>        
+
+        <h3>Site Quotation</h3>
+        <p>The site quotation table shows the calculations for the selected site.<br>The <a href="#consolidation">consolidated</a> figures for all of the sites are shown at the top right of the table.</p>
+
+        <div class="max-w-screen-lg mx-auto w-full h-full flex flex-col items-center justify-center">
+            <div class="flex px-4 py-2">
+                <div>
+                    <button :class="!tab ? 'bg-blue-100' : 'bg-transparent'" :disabled="!tab" @click="tab = 0" class="hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-10">
+                    Site 1
+                    </button>
+                </div>                    
+                <div>
+                    <button :class="1==tab ? 'bg-blue-100' : 'bg-transparent'" :disabled="1==tab" @click="tab = 1" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-10">
+                    Site 2
+                    </button>
+                </div>                    
+                <div>
+                    <button :class="2==tab ? 'bg-blue-100' : 'bg-transparent'" :disabled="2==tab" @click="tab = 2" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-10">
+                    Site 3
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <div x-data="simpleNoSheetTable('activeTable')" class="w-full flex flex-col">
+            <table class="table-fixed" width="100%" :class="storeId" x-data="{columns:[]}">
+                <thead class="border-b-2">
+                    <tr class="text-center">
+                        <th x-init="columns.push('item')" class="w-1/6 px-4 py-2 text-left">Item</th>
+                        <th x-init="columns.push('steel_m2')" class="w-1/6  px-4 py-2">Steel Used m<sup>2</sup></th>
+                        <th x-init="columns.push('unit_cost')" class="px-4 py-2">Item Cost</th>
+                        <th x-init="columns.push('unit_offer')" class="px-4 py-2">Unit Price</th>
+                        <th x-init="columns.push('quantity')" class="px-4 py-2">Quantity</th>
+                        <th x-init="columns.push('line_cost')" class="px-4 py-2 text-center">Line Cost</th>
+                        <th x-init="columns.push('line_offer')" class="px-4 py-2">Line Offer</th>
+                        <th x-init="columns.push('gross_margin')" class="px-4 py-2 ">Gross Margin</th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    <template x-for="(item, row_index) in items" :key="row_index">
+                        <tr :id="`${storeId}-row[${row_index}]`" class="hover:bg-gray-200 dark:hover:bg-gray-900 text-xs">
+                            <template x-for="(column_name, html_column_index) in columns">
+                                <td x-data="{column_index: storedTable.columnIndex(column_name)}" class="py-3 pr-4" :class="`col_${column_name}`" :id="`${storeId}_cell[${row_index}][${column_index}]`">
+
+                                    <template x-if="[2,3].includes(column_index)">
+                                        <input type="number" min="0" :value="item[column_index]" @input="setCellValue(row_index, column_index, +$el.value)" class="text-right w-5/6 ml-2 border-gray-200 border-2">
+                                    </template>
+                                    
+                                    <template x-if="!column_index">
+                                        <!--Don't update on calculation-->
+                                        <span x-text="item[column_index]"></span>                                            
+                                    </template>                                        
+
+                                    <template x-if="[1,4,5,6].includes(column_index)">
+                                        <!--Update on calculation--> <!-- calculation may occur during load/unload in which case items[row_index] may be 'undefined' -->
+                                        <div x-text="item[column_index].toFixed(2)" x-init="$watch('calculationTick', _ => $el.innerHTML = items[row_index]?.[column_index].toFixed(2))" class="text-right"></div>                                            
+                                    </template>                                        
+
+                                    <template x-if="column_index == 7">
+                                        <!--Update on calculation--> <!-- calculation may occur during load/unload in which case items[row_index] may be 'undefined' -->
+                                        <div x-text="percent_format.format(item[column_index])" x-init="$watch('calculationTick', _ => $el.innerHTML = percent_format.format(items[row_index]?.[column_index]))" class="text-right"></div>                                            
+                                    </template>                                        
+
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+                    <tr x-show="isEmpty">
+                        <td colspan="5" class="text-center py-3 text-sm">No matching records found.</td>
+                    </tr>
+                </tbody>
+                <tfoot class="border-t-4">    
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <div x-data="aggregate('total_cost')" x-text="Number(value).toFixed(2)" class="text-right"></div>
+                        </th>
+                        <th>
+                            <div x-data="aggregate('total_offer')" x-text="Number(value).toFixed(2)" class="text-right"></div>
+                        </th>
+                        <th></th>
+                    </tr>
+                    <tr class="border-t-4">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Site Profit:</th>
+                        <th>
+                            <div x-data="aggregate('profit')" x-text="Number(value).toFixed(2)" class="text-right"></div>
+                        </th>
+                        <th>
+                            <span x-data="aggregate('low_margin_warning')" :class="value ? 'text-red-600' : 'text-green-600'">
+                                <div x-data="aggregate('gross_margin', percent_format)" x-text="value" class="text-right"></div>
+                            </span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="*">&nbsp;</th>
+                    </tr>
+                    <tr>
+                        <th colspan="5"></th>
+                        <th class="text-left"colspan="*">For All Sites:</th>
+                    </tr>
+                    <tr class="text-center">
+                        <th class="text-right" colspan="5"></th>
+                        <th class="border-gray-200 border-b-2 text-right" x-data="consolidation('total_cost')" x-text="Number(value).toFixed(2)"></th>
+                        <th class="border-gray-200 border-b-2 text-right" x-data="consolidation('total_offer')" x-text="Number(value).toFixed(2)"></th>
+                        <th class="border-gray-200 border-b-2"></th>
+                    </tr>
+                    <tr class="text-center">
+                        <th class="text-right" colspan="5"></th>
+                        <th class="border-gray border-t-4">Profit:</th>
+                        <th class="border-gray border-t-4 text-right" x-data="consolidation('profit')" x-text="Number(value).toFixed(2)"></th>
+                        <th class="border-gray border-t-4">
+                            <div x-data="consolidation('low_margin_warning')" :class="value ? 'text-red-600' : 'text-green-600'">
+                                <div x-data="consolidation('gross_margin', percent_format)" x-text="value" class="text-right"></div>
+                            </div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div> <!-- simpleTable()-->
+        <h3>Steel suppliers</h3>
+        <p>The steel suppliers table calculates the average cost of supply based on the purchase and transportation costs from several suppliers using the <a href="#steel_suppliers">steel_suppliers</a> facet.</p>
+
+        <div x-data="simpleNoSheetTable('steelSuppliers')" class="w-2/3 flex flex-col">
+            <table class="table-fixed" width="100%" :class="storeId" x-data="{columns:[]}">
+                <thead class="border-b-2 text-gray-800">
+                    <tr class="text-center">
+                        <th x-init="columns.push('supplier')" class="w-1/6 px-4 py-2 text-left">Supplier</th>
+                        <th x-init="columns.push('steel_m2')" class="w-2/6 px-4 py-2">Steel Cost<br>m<sup>2</sup></th>
+                        <th x-init="columns.push('transport_m2')" class="w-2/6 px-4 py-2">Transport Cost m<sup>2</sup></th>
+                        <th x-init="columns.push('cost_per_m2')" class="px-4 py-2">Supplier Cost m<sup>2</sup></th> 
+                    </tr>    
+                </thead>
+                <tbody>
+                    <template x-for="(item, row_index) in items" :key="row_index">
+                        <tr :id="`${storeId}-row[${row_index}]`" class="hover:bg-gray-200 dark:hover:bg-gray-900 text-xs">
+                            <template x-for="(column_name, html_column_index) in columns">
+                                <td x-data="{column_index: storedTable.columnIndex(column_name)}" class="pr-4 py-3" :class="`col_${column_name}`" :id="`${storeId}_cell[${row_index}][${column_index}]`">
+
+                                    <template x-if="!column_index">
+                                        <!--Don't update on calculation-->
+                                        <span x-text="item[column_index]"></span>                                            
+                                    </template>                                        
+
+                                    <template x-if="[1,2].includes(column_index)">
+                                        <input type="number" min="0" step="0.1" :value="item[column_index]" @input="setCellValue(row_index, column_index, +$el.value)" class="text-right w-5/6 ml-2 border-gray-200 border-2">
+                                    </template>                                                                            
+
+                                    <template x-if="3 == column_index">
+                                        <div x-text="item[column_index].toFixed(3)" x-init="$watch('calculationTick', _ => $el.innerHTML = items[row_index]?.[column_index].toFixed(3))" class="text-right"></div>                                            
+                                    </template>                                        
+
+                                </td>
+                            </template>
+                        </tr>
+                    </template>
+                    <tr x-show="isEmpty">
+                        <td colspan="5" class="text-center py-3 text-sm">No matching records found.</td>
+                    </tr>
+                </tbody>
+                <tfoot class="border-t-4 text-gray-800">    
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Average:</th>
+                        <th>
+                            <div x-data="aggregate('average_cost_per_m2')" x-text="Number(value).toFixed(3)" class="text-right"></div>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div> <!-- simpleTable()-->
+
+        <div class="container mx-auto w-full h-full">
+<h3 id="init">Create and populate the noSheet tables:</h3>                        
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">//load the data
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">data1</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">loadJSON</span><span class="p">(</span><span class="s1">&#39;site1.json&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">      <span class="nx">data2</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">loadJSON</span><span class="p">(</span><span class="s1">&#39;site2.json&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">      <span class="nx">data3</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">loadJSON</span><span class="p">(</span><span class="s1">&#39;site3.json&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">      <span class="nx">data4</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">loadJSON</span><span class="p">(</span><span class="s1">&#39;steel_suppliers.json&#39;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1">//create and define the stack; which acts as a table factory and allows us to use consolidation facets
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1">//        
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">stack</span> <span class="o">=</span> <span class="nx">defineStack</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;steel_m2&#39;</span><span class="p">,</span> <span class="s1">&#39;unit_offer&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nx">site_1</span> <span class="o">=</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">createTable</span><span class="p">(</span><span class="s1">&#39;site1&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="nx">site_2</span> <span class="o">=</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">createTable</span><span class="p">(</span><span class="s1">&#39;site2&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="nx">site_3</span> <span class="o">=</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">createTable</span><span class="p">(</span><span class="s1">&#39;site3&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1">//set the facets used by the stack
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"></span><span class="nx">stack</span><span class="p">.</span><span class="nx">addFacets</span><span class="p">(</span><span class="nx">raw_materials</span><span class="p">,</span> <span class="nx">lineitems</span><span class="p">,</span> <span class="nx">gross_margin</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1">//set a consolidation facet
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="c1"></span><span class="nx">stack</span><span class="p">.</span><span class="nx">consolidate</span><span class="p">(</span><span class="nx">consolidation</span><span class="p">);</span>            
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1">//populate the tables
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="c1">//
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"></span><span class="nx">site_1</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">data1</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="nx">site_2</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">data2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="nx">site_3</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">data3</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="c1">//Create a table for the steel suppliers
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">suppliers</span> <span class="o">=</span> <span class="nx">createTable</span><span class="p">([</span><span class="s1">&#39;supplier&#39;</span><span class="p">,</span> <span class="s1">&#39;steel_m2&#39;</span><span class="p">,</span> <span class="s1">&#39;transport_m2&#39;</span><span class="p">],</span> <span class="nx">steel_suppliers</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">
+</span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="c1">//load and calculate
+</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="c1"></span><span class="nx">suppliers</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">data4</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="nx">suppliers</span><span class="p">.</span><span class="nx">calculate</span><span class="p">();</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">
+</span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="c1">//Set the average_steel_cost_m2 reference required by the raw_materials facets to use
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="c1">//the average_cost_per_m2 aggregate from the suppliers table
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="c1"></span><span class="nx">stack</span><span class="p">.</span><span class="nx">setDefaultReferences</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">uses</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">
+</span></span><span class="line"><span class="ln">39</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">average_steel_cost_m2</span> <span class="o">=</span> <span class="nx">uses</span><span class="p">(</span><span class="nx">suppliers</span><span class="p">).</span><span class="nx">average_cost_per_m2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="p">});</span>  
+</span></span></code></pre></div>
+<h3>The raw_materials facet:</h3>
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln">1</span><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cm">Calculate line item cost from raw materials
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">refs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="nx">row</span><span class="p">.</span><span class="nx">unit_cost</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">row</span><span class="p">.</span><span class="nx">steel_m2</span> <span class="o">*</span> <span class="p">(</span><span class="nx">refs</span><span class="p">.</span><span class="nx">manufacturing_cost_per_m2</span> <span class="o">+</span> <span class="nx">refs</span><span class="p">.</span><span class="nx">average_steel_cost_m2</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+<h3>The lineitems facet:</h3>
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm">A simple invoice/quotation calculator
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span> <span class="nx">row</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="nx">row</span><span class="p">.</span><span class="nx">line_cost</span>     <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">row</span><span class="p">.</span><span class="nx">quantity</span> <span class="o">*</span> <span class="nx">row</span><span class="p">.</span><span class="nx">unit_cost</span><span class="p">;</span>    
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">    <span class="nx">row</span><span class="p">.</span><span class="nx">line_offer</span>    <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">row</span><span class="p">.</span><span class="nx">quantity</span> <span class="o">*</span> <span class="nx">row</span><span class="p">.</span><span class="nx">unit_offer</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">total_quantity</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">SUM</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="s1">&#39;quantity&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">total_cost</span>     <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">SUM</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="s1">&#39;line_cost&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">total_offer</span>    <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">SUM</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="s1">&#39;line_offer&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">profit</span>         <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">table</span><span class="p">.</span><span class="nx">total_offer</span> <span class="o">-</span> <span class="nx">table</span><span class="p">.</span><span class="nx">total_cost</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+<h3>The gross_margin facet:</h3>    
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm"> * Calculate the gross margin for line items and for the whole table
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm"> * 
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cm"> * @param {*} table     Table query object
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cm"> * @param {*} row       The table row
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm"> * @param {*} refs      External references
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">refs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">     * The row Gross Margin
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">     * @returns number
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="cm">     */</span>    
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="nx">row</span><span class="p">.</span><span class="nx">gross_margin</span>  <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="nx">row</span><span class="p">.</span><span class="nx">unit_cost</span> <span class="o">/</span> <span class="nx">row</span><span class="p">.</span><span class="nx">unit_offer</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="cm">     * The total Gross Margin
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="cm">     * @returns number
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="cm">     */</span>    
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">gross_margin</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="nx">table</span><span class="p">.</span><span class="nx">total_cost</span> <span class="o">/</span> <span class="nx">table</span><span class="p">.</span><span class="nx">total_offer</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="cm">     * Returns true if the total Gross Margin is below the system threshold
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="cm">     * @returns boolean
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="cm">     */</span>    
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">low_margin_warning</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">table</span><span class="p">.</span><span class="nx">gross_margin</span> <span class="o">&lt;=</span> <span class="nx">refs</span><span class="p">.</span><span class="nx">low_margin_threshold</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+<h3 id="consolidation">The consolidation facet:</h3>    
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="cm"> * Consolidate table stack line items
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="cm"> * 
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="cm"> * @param {*} columns   Table columns query object
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="cm"> * @param {*} refs      External references
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(</span><span class="nx">columns</span><span class="p">,</span> <span class="nx">refs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="cm">     * The total cost of all the line items in the table stack
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="cm">     * @returns number
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">total_cost</span>  <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">SUM</span><span class="p">(</span> <span class="p">...</span><span class="nx">columns</span><span class="p">(</span><span class="s1">&#39;line_cost&#39;</span><span class="p">)</span> <span class="p">);</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="cm">     * The total offer price of all the line items in the table stack
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="cm">     * @returns number
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">total_offer</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">SUM</span><span class="p">(</span> <span class="p">...</span><span class="nx">columns</span><span class="p">(</span><span class="s1">&#39;line_offer&#39;</span><span class="p">)</span> <span class="p">);</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="cm">     * Total profit
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="cm">     * @returns number
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">profit</span>      <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">total_offer</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">total_cost</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="cm">     * The total Gross Margin
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="cm">     * @returns number
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">gross_margin</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">total_cost</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">total_offer</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="cm">     * Returns true if the total Gross Margin is below the system threshold
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="cm">     * @returns boolean
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="ln">38</span><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">low_margin_warning</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">gross_margin</span> <span class="o">&lt;=</span> <span class="nx">refs</span><span class="p">.</span><span class="nx">low_margin_threshold</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>            
+</span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+<h3 id="steel_suppliers">The steel_suppliers facet:</h3>    
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="ln">1</span><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="cm">Calculate steel supply costs
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(</span><span class="nx">table</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">refs</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    <span class="nx">row</span><span class="p">.</span><span class="nx">cost_per_m2</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">row</span><span class="p">.</span><span class="nx">steel_m2</span> <span class="o">+</span> <span class="nx">row</span><span class="p">.</span><span class="nx">transport_m2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    <span class="nx">table</span><span class="p">.</span><span class="nx">average_cost_per_m2</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="nx">AVERAGE</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="s1">&#39;cost_per_m2&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="p">};</span></span></span></code></pre></div>
+   
+        </div>
+
+    </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" crossorigin="anonymous"></script>
+
+          </article>
+
+          
+          <div class="fluidity-decorative-gradient-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <aside id="article-aside" class="mt-4 lg:mt-12"><div class="w-fit">
+        <nav class="fluidity-tab-list flex gap-6" aria-label="Tabs" role="tablist"></nav>
+      </div>
+
+      <div class="mt-4">
+        </div>
+    </aside>
+  </div></main>
+    <footer class="relative z-50"><div
+  class="mt-16 border-t border-neutral-200/80 dark:border-neutral-800/20 
+            bg-gradient-to-b from-white/80 via-sky-50/30 to-blue-50/20
+            dark:from-neutral-900/90 dark:via-neutral-900/50 dark:to-neutral-800/30 
+            backdrop-blur-md">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 lg:gap-8">
+      
+      <div class="col-span-1 md:col-span-2">
+        <h3 class="text-lg sm:text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-4">About</h3>
+        <p class="text-slate-600 dark:text-slate-300 italic text-sm sm:text-base">you don&#39;t have to use a Spreadsheet, noSheet!</p>
+      </div>
+
+      
+      <div>
+        <h3 class="text-lg sm:text-xl font-semibold text-neutral-900 dark:text-neutral-50 mb-4">Sections</h3><ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm sm:text-base"><li>
+              <a
+                href="/examples/"
+                class="group flex items-center gap-2
+                        hover:text-sky-600 dark:hover:text-sky-300 
+                        transition-all duration-300 ease-in-out">
+                <span class="transform group-hover:translate-x-1 transition-transform duration-300">Examples</span>
+                <span
+                  class="text-sm text-neutral-500 dark:text-neutral-400
+                           group-hover:text-sky-500 dark:group-hover:text-sky-400
+                           transition-colors duration-300">
+                  (4)
+                </span>
+              </a>
+            </li><li>
+              <a
+                href="/pages/"
+                class="group flex items-center gap-2
+                        hover:text-sky-600 dark:hover:text-sky-300 
+                        transition-all duration-300 ease-in-out">
+                <span class="transform group-hover:translate-x-1 transition-transform duration-300">Pages</span>
+                <span
+                  class="text-sm text-neutral-500 dark:text-neutral-400
+                           group-hover:text-sky-500 dark:group-hover:text-sky-400
+                           transition-colors duration-300">
+                  (3)
+                </span>
+              </a>
+            </li></ul>
+      </div>
+
+      
+      
+    </div>
+
+    <div class="relative flex justify-center my-4">
+      <div
+        class="absolute inset-x-0 top-1/2 h-[1px] -translate-y-1/2 bg-gradient-to-r from-transparent via-sky-200 dark:via-sky-800 to-transparent opacity-50 blur-[0.5px]"></div>
+      <span
+        class="relative z-10 rounded-full 
+                   bg-sky-50 dark:bg-neutral-900
+                   px-4 py-0.5
+                   text-neutral-600 dark:text-neutral-400 
+                   text-xs font-mono italic">
+        Site built with
+        <a
+          rel="nofollow"
+          class="underline decoration-neutral-300 
+                  hover:text-sky-600 dark:hover:text-sky-400 
+                  transition-colors duration-300"
+          target="_blank"
+          href="https://gohugo.io">
+          Hugo
+        </a>
+        &&
+        <a
+          class="underline decoration-neutral-300 
+                  hover:text-sky-600 dark:hover:text-sky-400 
+                  transition-colors duration-300"
+          rel="nofollow"
+          target="_blank"
+          href="https://github.com/wayjam/hugo-theme-fluidity">
+          Theme Fluidity
+        </a>
+      </span>
+    </div>
+
+    
+    <div class="text-center text-neutral-600 dark:text-neutral-400 font-sans text-sm sm:text-base">
+      <p>
+        &copy; 2025 NoSheet.All Rights Reserved.</p>
+    </div>
+  </div>
+</div>
+</footer>
+  </div></body>
+</html>
