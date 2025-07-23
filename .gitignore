@@ -136,7 +136,7 @@ dist
 .pnp.*
 
 #hugo
-xdocs/compiler
-xdocs/sources
-xdocs/index.xml
-xdocs/noSheetLibrary
+docs/compiler
+docs/sources
+docs/index.xml
+docs/noSheetLibrary
